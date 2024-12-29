@@ -12,7 +12,7 @@ const LoginForm = ({ onLogin }) => {
     e.preventDefault();
     try {
       // Make sure backend credentials match: username: lecturer, password: 1234
-      const response = await axios.post('http://localhost:5000/auth/login', { username, password });
+      const response = await axios.post('http://localhost:5001/auth/login', { username, password });
       localStorage.setItem('token', response.data.token);
       onLogin();
     } catch (err) {

@@ -1,54 +1,99 @@
 .timetable-container {
-    margin: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .timetable-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-  }
-  
-  .timetable {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .timetable th, .timetable td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    vertical-align: top;
-    white-space: pre-line;
-  }
-  
-  .timetable th {
-    background: #357ae8;
-    font-weight: bold;
-  }
-  
-  .clickable-cell {
-    cursor: pointer;
-    background-color: #fafafa;
-    transition: background-color 0.2s;
-  }
-  
-  .clickable-cell:hover {
-    background-color: #eaeaea;
-  }
-  
-  .student-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .student-item {
-    margin-bottom: 10px;
-  }
-  .submit-btn{
-    width: 100px;
-    height: 30px;
-    background-color: #357ae8;
-    border: none;
-  }
+  margin: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.timetable-title {
+  height: 60px;
+  line-height: 60px;
+  background-color: #0056b3;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  border-radius: 8px;
+}
+.course-selector{
+  width: 50%;
+  display: flex;align-items: center;justify-content: space-around;
+}
+.active-course-btn{
+  height: 40px;
+  width: 200px;
+  border-radius: 15px;
+  background-color: #1900ff;
+  font-size: 20px;
+  color: #fff200;
+}
+.course-btn{
+  height: 40px;
+  width: 200px;
+  border-radius: 15px;
+  background-color: #0068fa;
+  font-size: 15px;
+  color: #ddd;
+}
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.timetable th, .timetable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  vertical-align: top;
+  white-space: pre-line;
+}
+
+.timetable th {
+  background: #004080;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.clickable-cell {
+  cursor: pointer;
+  background-color: #fcfcfc;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.clickable-cell:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.03);
+}
+
+.student-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.student-item {
+  margin-bottom: 12px;
+}
+
+.student-item label {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 130px;
+  height: 40px;
+  background-color: #0069d9;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #004bb5;
+  transform: scale(1.07);
+}
+

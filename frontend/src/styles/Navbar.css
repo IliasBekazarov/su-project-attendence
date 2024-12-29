@@ -1,41 +1,142 @@
+.navbar-dropdown {
+  position: relative;
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  background-color: white;
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.navbar-dropdown:hover .dropdown-list {
+  display: block;
+}
+
+.navbar-link, .navbar-button {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.navbar-link:hover, .navbar-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Navbar жалпы стили */
 .navbar {
-    background: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
-    /* column-gap: 60px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #007bff, #0056b3); /* Көк градиент */
+  padding: 15px 30px;
+  color: #ffffff; /* Ак текст */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Терең көлөкө */
+  border-radius: 10px; /* Навбарды жумшак бурчтуу кылуу */
+  margin: 20px; /* Жогору жана төмөн аралык */
+}
+
+/* Логотип блогу */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Элементтер аралык аралык */
+}
+
+.navbar-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Айлананы форма кылуу */
+  border: 3px solid #ffffff; /* Ак контур */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Көлөкө */
+  transition: transform 0.3s;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.1); /* Логотип hover болгондо чоңойот */
+}
+
+.navbar-logo h2 {
+  font-size: 24px;
+  margin: 0;
+  color: #ffffff; /* Ак текст */
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Жеңил текст көлөкөсү */
+}
+
+/* Навигация тизме */
+.navbar-list {
+  display: flex;
+  list-style: none;
+  line-height: 80px;
+  margin: 0;
+  padding: 0;
+  gap: 15px; /* Элементтер аралык аралык */
+}
+
+.navbar-link {
+  top: 10px;
+  color: #ffffff; /* Ак текст */
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px; /* Жумшак тегерек форма */
+  background-color: rgba(255, 255, 255, 0.2); /* Тунук ак фон */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.navbar-link:hover {
+  background-color: #ffffff; /* Hover болгондо фон ак болот */
+  color: #007bff; /* Текст көк түстө */
+  transform: translateY(-3px); /* Жеңил жогорку жылышуу */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hover көлөкө */
+}
+
+/* Logout баскычы */
+.navbar-button {
+  background-color: #ffffff; /* Ак фон */
+  color: #007bff; /* Көк текст */
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 50px; /* Жумшак тегерек форма */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.navbar-button:hover {
+  background-color: #0056b3; /* Көк фон */
+  color: #ffffff; /* Ак текст */
+  transform: translateY(-3px); /* Жеңил жогорку жылышуу */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hover көлөкө */
+}
+
+/* Responsive дизайн */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
   }
-  
+
   .navbar-list {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
   }
-  
-  .navbar-link, .navbar-button {
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    text-decoration: none;
-    background: #4285f4;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: 1s;
+
+  .navbar-link {
+    text-align: center;
+    width: 100%;
   }
-  
-  .navbar-link:hover{
-    background-color: #357ae8;
+
+  .navbar-button {
+    align-self: center;
   }
-  .navbar-button:hover {
-    background: #357ae8;
-  }
-  .logo{
-    width: 40px;
-    height: 40px;
-  }
+}

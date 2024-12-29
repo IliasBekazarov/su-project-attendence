@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 
 const router = express.Router();
-const USERNAME = "lecturer";
+const USERNAME = "ilias";
 const PASSWORD = "1234";
 const JWT_SECRET = "your_jwt_secret_key";
 

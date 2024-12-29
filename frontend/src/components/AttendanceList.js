@@ -6,7 +6,7 @@ const AttendanceList = () => {
 
   const fetchStudents = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:5000/attendance', {
+    const response = await axios.get('http://localhost:5001/attendance', {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     setStudents(response.data.students);
@@ -14,7 +14,7 @@ const AttendanceList = () => {
 
   const markPresent = async (id) => {
     const token = localStorage.getItem('token');
-    await axios.post('http://localhost:5000/attendance/mark', { id }, {
+    await axios.post('http://localhost:5001/attendance/mark', { id }, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     fetchStudents();
