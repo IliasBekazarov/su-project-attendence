@@ -385,11 +385,7 @@ const FridayTimeTable = () => {
                     {activeCourse.students[selectedGroupIndex][i] ||
                       `Student ${i + 1}`}
                   </label>
-                  <input
-                      className='for-late'
-                      type="number"
-                      placeholder='Late minut'
-                    />{' '}
+                  
                 </li>
                 
               ))}
