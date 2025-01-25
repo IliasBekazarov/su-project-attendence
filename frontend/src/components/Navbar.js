@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "../styles/Navbar.css";
 import logo from "../assets/logo.jpeg";
 
+
 const Navbar = ({ onLogout }) => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
@@ -20,9 +21,11 @@ const Navbar = ({ onLogout }) => {
         <a href="/">
           <img src={logo} alt="Logo" className="logo" />
         </a>
-        <h2>Salymbekov University</h2>
+        <h2>Salymbekov <h3> University</h3></h2>
       </div>
       <ul className="navbar-list">
+
+
         <li><Link to="/home" className="navbar-link">Home</Link></li>
         <li><Link to="/monday" className="navbar-link">Monday</Link></li>
         <li><Link to="/tuesday" className="navbar-link">Tuesday</Link></li>

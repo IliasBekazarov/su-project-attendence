@@ -62,7 +62,10 @@
 .navbar-logo img:hover {
   transform: scale(1.1); /* Логотип hover болгондо чоңойот */
 }
-
+.navbar-logo h2 h3{
+  margin: 0;
+  font-size: 30px;
+}
 .navbar-logo h2 {
   font-size: 24px;
   margin: 0;

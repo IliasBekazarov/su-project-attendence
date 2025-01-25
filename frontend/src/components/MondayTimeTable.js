@@ -1,4 +1,3 @@
-// MondayTime.js
 import React, { useState } from 'react';
 import Modal from './Modal';
 import axios from 'axios';
@@ -49,7 +48,9 @@ const courseData = [
           
           "",
           "",
-          "Веб разработка\nасс.преп. Завирбекова М.\nкаб.201"
+          "Веб разработка\nасс.преп. Завирбекова М.\nкаб.201",
+          "",
+        
         ]
       },
       {
@@ -240,7 +241,7 @@ const courseData = [
   }
 ];
 
-const MondayTimeTable = () => {
+const FridayTimeTable = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
   const [selectedPeriodIndex, setSelectedPeriodIndex] = useState(null);
@@ -280,24 +281,30 @@ const MondayTimeTable = () => {
     const key = `${selectedPeriodIndex}-${selectedGroupIndex}`;
     const attendanceToSave = attendance[key] || Array(studentsPerGroup).fill(0);
     const token = localStorage.getItem('token');
+    
+    
+    const currentDate = new Date().toISOString(); // ISO форматында дата
+    
     try {
       await axios.post(
         'http://localhost:5001/attendance/record',
         {
           periodIndex: selectedPeriodIndex,
           groupIndex: selectedGroupIndex,
-          attendance: attendanceToSave
+          attendance: attendanceToSave,
+          date: currentDate 
         },
         {
           headers: { Authorization: `Bearer ${token}` }
         }
       );
-      console.log('Attendance submitted:', attendanceToSave);
+      console.log('Attendance submitted:', { attendanceToSave, date: currentDate });
       closeModal();
     } catch (err) {
       console.error('Failed to submit attendance:', err);
     }
   };
+  
 
   const currentKey =
     selectedPeriodIndex !== null && selectedGroupIndex !== null
@@ -310,7 +317,7 @@ const MondayTimeTable = () => {
 
   return (
     <div className="timetable-container">
-      <h2 className="timetable-title">Расписание на Понедельник</h2>
+      <h2 className="timetable-title">Расписание на Понидельник 1</h2>
       <div className="course-selector">
         {courseData.map((course) => (
           <button
@@ -378,8 +385,15 @@ const MondayTimeTable = () => {
                     {activeCourse.students[selectedGroupIndex][i] ||
                       `Student ${i + 1}`}
                   </label>
+                  <input
+                      className='for-late'
+                      type="number"
+                      placeholder='Late minut'
+                    />{' '}
                 </li>
+                
               ))}
+             
             </ul>
             <button onClick={handleSubmit} className="submit-btn">
               Submit
@@ -391,5 +405,5 @@ const MondayTimeTable = () => {
   );
 };
 
-export default MondayTimeTable;
+export default FridayTimeTable;
 

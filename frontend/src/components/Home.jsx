@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Home.css";
+
 import {
   Chart,
   BarController,
@@ -40,12 +41,12 @@ const Home = () => {
   const chartData = [
     {
       course: "Course 1",
-      barData: [30, 25, 50, 40, 45, 60],
-      doughnutData: [50, 20, 5],
+      barData: [30, 25, 50, 40, 45, 100],
+      doughnutData: [10,15, 5],
     },
     {
       course: "Course 2",
-      barData: [20, 30, 40, 35, 50, 45],
+      barData: [100, 30, 40, 35, 50, 45],
       doughnutData: [45, 25, 10],
     },
     {
@@ -73,7 +74,7 @@ const Home = () => {
             {
               label: "Attendance",
               data: data.barData,
-              backgroundColor: ["#4CAF50", "#2196F3", "#FFC107", "#4CAF50", "#FF5722", "#2196F3"],
+              backgroundColor: ["#2196F3", "#2196F3", "#2196F3", "#2196F3", "#2196F3", "#2196F3"],
               borderWidth: 1,
               borderRadius: 5,
             },
@@ -133,7 +134,7 @@ const Home = () => {
               enabled: true,
             },
           },
-          cutout: "70%",
+          cutout: "50%",
         },
       });
     });

@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/TimeTables.css";
 
-// Constants for data mapping and readability
-const GROUP_NAMES = [
-  "CS-11-24", "CS-12-24", "CS-13-24", "CS-14-24", "CS-15-24", "CS-16-24",
-  "CS-21-24", "CS-22-24", "CS-23-24", "CS-24-24", "CS-25-24", "CS-26-24",
+
+const GROUPS = [
+  { name: "CS-11-24", students: ["1", "2", "3", "4", "5", "6"] },
+  { name: "CS-12-24", students: ["Taylor", "Anderson", "Thomas", "Jackson", "White", "Harris"] },
+  { name: "CS-13-24", students: ["Martin", "Thompson", "Garcia", "Martinez", "Robinson", "Clark"] },
+  { name: "CS-14-24", students: ["Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen"] },
+  { name: "CS-15-24", students: ["Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen"] },
+  { name: "CS-16-24", students: ["Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen"] },
+
 ];
 const PERIOD_NUMBERS = [1, 2, 3, 4, 5];
-const STUDENTS_PER_GROUP = 6;
-const STUDENT_LAST_NAMES = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis"];
+const DAYS_OF_WEEK = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 const TimeTables = () => {
   const [attendanceData, setAttendanceData] = useState({});
@@ -37,16 +41,19 @@ const TimeTables = () => {
     return Object.keys(attendanceData).flatMap((key) => {
       const [periodIndexStr, groupIndexStr, dataDayStr] = key.split("-");
       const periodIndex = parseInt(periodIndexStr, 10);
-      const groupIndex = parseInt(groupIndexStr, 10);
+      const groupIndex = parseInt(groupIndexStr, 30);
       const attendanceString = attendanceData[key];
 
-      if (attendanceString.length !== STUDENTS_PER_GROUP) return [];
+      if (!GROUPS[groupIndex] || attendanceString.length !== GROUPS[groupIndex].students.length) return [];
+
+      const day = DAYS_OF_WEEK[parseInt(dataDayStr, )] || "Unknown Day";
+      const group = GROUPS[groupIndex];
 
       return attendanceString.split("").map((status, studentIndex) => ({
-        day: "Monday", // Placeholder for day mapping if needed
+        day: day,
         period: PERIOD_NUMBERS[periodIndex],
-        group: GROUP_NAMES[groupIndex],
-        studentName: STUDENT_LAST_NAMES[studentIndex],
+        group: group.name,
+        studentName: group.students[studentIndex],
         status: status === "1" ? "Present" : "Absent",
       }));
     });
@@ -88,6 +95,7 @@ const TimeTables = () => {
           </tbody>
         </table>
       )}
+      
     </div>
   );
 };
